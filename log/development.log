@@ -96,3 +96,44 @@ Completed 200 OK in 56ms (Views: 43.0ms | ActiveRecord: 0.0ms | Allocations: 102
 
   [1m[35m (410.7ms)[0m  [1m[35mCREATE DATABASE "development_finstagram" ENCODING = 'utf8'[0m
   [1m[35m (125.8ms)[0m  [1m[35mCREATE DATABASE "test_finstagram" ENCODING = 'utf8'[0m
+Started GET "/" for ::1 at 2021-08-03 13:32:55 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.7ms | Allocations: 358)
+[Webpacker] Everything's up-to-date. Nothing to do
+  Rendered layout layouts/application.html.erb (Duration: 128.0ms | Allocations: 6940)
+Completed 200 OK in 230ms (Views: 178.3ms | ActiveRecord: 0.0ms | Allocations: 10611)
+
+
+  [1m[35m (336.5ms)[0m  [1m[35mCREATE DATABASE "development_finstagram" ENCODING = 'utf8'[0m
+  [1m[35m (0.5ms)[0m  [1m[35mCREATE DATABASE "test_finstagram" ENCODING = 'utf8'[0m
+Started GET "/" for ::1 at 2021-08-03 13:57:08 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.5ms | Allocations: 358)
+  Rendered layout layouts/application.html.erb (Duration: 4781.0ms | Allocations: 226773)
+Completed 500 Internal Server Error in 4792ms (ActiveRecord: 0.0ms | Allocations: 230446)
+
+
+  
+ActionView::Template::Error (application.js):
+    4:     <title>Finstagram</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    7:     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    8:   </head>
+    9: 
+   10:   <body>
+  
+app/views/layouts/application.html.erb:7
+Started GET "/" for ::1 at 2021-08-03 13:57:42 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 1.3ms | Allocations: 140)
+  Rendered layout layouts/application.html.erb (Duration: 24.3ms | Allocations: 6205)
+Completed 200 OK in 31ms (Views: 28.7ms | ActiveRecord: 0.0ms | Allocations: 7633)
+
+
