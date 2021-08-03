@@ -169,3 +169,181 @@ Migrating to AddMoreFieldsToUsers (20210803181323)
   [1m[36mActiveRecord::InternalMetadata Load (1.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(7977417797467670265)[0m
   [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2021-08-03 15:02:45 -0400
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 2.5ms | Allocations: 357)
+  Rendered layout layouts/application.html.erb (Duration: 3888.3ms | Allocations: 158934)
+Completed 200 OK in 3910ms (Views: 3895.5ms | ActiveRecord: 0.0ms | Allocations: 162798)
+
+
+Started GET "/" for ::1 at 2021-08-03 15:02:52 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.1ms | Allocations: 43)
+  Rendered layout layouts/application.html.erb (Duration: 23.9ms | Allocations: 5847)
+Completed 200 OK in 26ms (Views: 24.8ms | ActiveRecord: 0.0ms | Allocations: 6404)
+
+
+Started GET "/" for ::1 at 2021-08-03 15:02:54 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 38)
+  Rendered layout layouts/application.html.erb (Duration: 15.7ms | Allocations: 5679)
+Completed 200 OK in 18ms (Views: 16.7ms | ActiveRecord: 0.0ms | Allocations: 6130)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-03 15:02:58 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 6.0ms | Allocations: 694)
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 49.2ms | Allocations: 8996)
+  Rendered layout layouts/application.html.erb (Duration: 59.2ms | Allocations: 14776)
+Completed 200 OK in 100ms (Views: 63.4ms | ActiveRecord: 11.6ms | Allocations: 25272)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-08-03 15:03:06 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"imarshall14@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (5.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "imarshall14@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 23ms (ActiveRecord: 7.3ms | Allocations: 3305)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"imarshall14@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 172)
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.4ms | Allocations: 1146)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | Allocations: 6824)
+Completed 200 OK in 318ms (Views: 10.7ms | ActiveRecord: 0.0ms | Allocations: 8781)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-08-03 15:03:13 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"imarshall14@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "imarshall14@gmail.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 1.4ms | Allocations: 1872)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"imarshall14@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"1"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 156)
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.6ms | Allocations: 1011)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 6564)
+Completed 200 OK in 297ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 7213)
+
+
+Started GET "/users/sign_in" for ::1 at 2021-08-03 15:03:20 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.9ms | Allocations: 156)
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 8.0ms | Allocations: 1022)
+  Rendered layout layouts/application.html.erb (Duration: 50.4ms | Allocations: 6603)
+Completed 200 OK in 60ms (Views: 54.1ms | ActiveRecord: 0.0ms | Allocations: 7288)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-08-03 15:03:29 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "email@email.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 16ms (ActiveRecord: 1.9ms | Allocations: 1659)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.3ms | Allocations: 156)
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 2.7ms | Allocations: 1010)
+  Rendered layout layouts/application.html.erb (Duration: 11.4ms | Allocations: 6563)
+Completed 200 OK in 288ms (Views: 12.3ms | ActiveRecord: 0.0ms | Allocations: 7203)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-08-03 15:03:33 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "email@email.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 1.5ms | Allocations: 1646)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 156)
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.8ms | Allocations: 1010)
+  Rendered layout layouts/application.html.erb (Duration: 11.3ms | Allocations: 6562)
+Completed 200 OK in 296ms (Views: 12.1ms | ActiveRecord: 0.0ms | Allocations: 7200)
+
+
+Started POST "/users/sign_in" for ::1 at 2021-08-03 15:03:39 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (1.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."email" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["email", "email@email.com"], ["LIMIT", 1]]
+Completed 401 Unauthorized in 8ms (ActiveRecord: 1.7ms | Allocations: 1643)
+
+
+Processing by Devise::SessionsController#new as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.2ms | Allocations: 156)
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/sessions/new.html.erb within layouts/application (Duration: 1.9ms | Allocations: 1010)
+  Rendered layout layouts/application.html.erb (Duration: 11.8ms | Allocations: 6587)
+Completed 200 OK in 297ms (Views: 12.6ms | ActiveRecord: 0.0ms | Allocations: 7225)
+
+
+Started GET "/users/sign_up" for ::1 at 2021-08-03 15:04:00 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/shared/_error_messages.html.erb (Duration: 1.5ms | Allocations: 240)
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/shared/_links.html.erb (Duration: 0.6ms | Allocations: 160)
+  Rendered /Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views/devise/registrations/new.html.erb within layouts/application (Duration: 9.6ms | Allocations: 2123)
+  Rendered layout layouts/application.html.erb (Duration: 24.9ms | Allocations: 7901)
+Completed 200 OK in 31ms (Views: 29.7ms | ActiveRecord: 0.0ms | Allocations: 9546)
+
+
+Started POST "/users" for ::1 at 2021-08-03 15:04:12 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "user"=>{"email"=>"email@email.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.1ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "email@email.com"], ["LIMIT", 1]]
+  [1m[36mUser Create (14.6ms)[0m  [1m[32mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["email", "email@email.com"], ["encrypted_password", "$2a$12$0p9QtnwAk2WH2JwxienHdeJ5we0vbVypJ4.9J.rfv9LAFu4HUetzu"], ["created_at", "2021-08-03 19:04:13.055390"], ["updated_at", "2021-08-03 19:04:13.055390"]]
+  [1m[36mTRANSACTION (2.3ms)[0m  [1m[35mCOMMIT[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 326ms (ActiveRecord: 18.8ms | Allocations: 8419)
+
+
+Started GET "/" for ::1 at 2021-08-03 15:04:13 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 0.2ms | Allocations: 41)
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+  Rendered layout layouts/application.html.erb (Duration: 12.3ms | Allocations: 7070)
+Completed 200 OK in 14ms (Views: 11.7ms | ActiveRecord: 1.3ms | Allocations: 7609)
+
+
+Started GET "/users/1" for ::1 at 2021-08-03 15:04:26 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 196)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/layouts/application.html.erb:28
+  Rendered layout layouts/application.html.erb (Duration: 28.7ms | Allocations: 7268)
+Completed 200 OK in 38ms (Views: 34.5ms | ActiveRecord: 1.4ms | Allocations: 8577)
+
+
