@@ -543,3 +543,68 @@ Processing by ActiveStorage::DiskController#show as PNG
 Completed 200 OK in 9ms (ActiveRecord: 0.0ms | Allocations: 653)
 
 
+Started GET "/" for ::1 at 2021-08-04 15:21:18 -0400
+  [1m[35m (4.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC LIMIT $1 OFFSET $2[0m  [["LIMIT", 5], ["OFFSET", 0]]
+  ↳ app/views/home/index.html.erb:18
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (1.2ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:28
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:28
+  Rendered home/index.html.erb within layouts/application (Duration: 100.3ms | Allocations: 37845)
+  Rendered layout layouts/application.html.erb (Duration: 195.1ms | Allocations: 53468)
+Completed 200 OK in 225ms (Views: 176.6ms | ActiveRecord: 29.3ms | Allocations: 60381)
+
+
+Started GET "/user_avatar.jpg" for ::1 at 2021-08-04 15:21:18 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/user_avatar.jpg"):
+  
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--93cec10b85c2ecd9857ca15c896f0332b675f568/Screen%20Shot%202021-08-04%20at%2011.02.09%20AM.png" for ::1 at 2021-08-04 15:21:18 -0400
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--93cec10b85c2ecd9857ca15c896f0332b675f568", "filename"=>"Screen Shot 2021-08-04 at 11.02.09 AM"}
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (13.1ms) [0m[34mGenerated URL for file at key: g7vqt9zshokec6zlcw5xvsah5p7w (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaemQyY1hRNWVuTm9iMnRsWXpaNmJHTjNOWGgyYzJGb05YQTNkd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlKcGJteHBibVU3SUdacGJHVnVZVzFsUFNKVFkzSmxaVzRnVTJodmRDQXlNREl4TFRBNExUQTBJR0YwSURFeExqQXlMakE1SUVGTkxuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVTJOeVpXVnVKVEl3VTJodmRDVXlNREl3TWpFdE1EZ3RNRFFsTWpCaGRDVXlNREV4TGpBeUxqQTVKVEl3UVUwdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMS0wOC0wNFQxOToyNjoxOC44ODdaIiwicHVyIjoiYmxvYl9rZXkifX0=--ac2ded4daafb4b89f9e8fe9ca2d2ca44f353a14f/Screen%20Shot%202021-08-04%20at%2011.02.09%20AM.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaemQyY1hRNWVuTm9iMnRsWXpaNmJHTjNOWGgyYzJGb05YQTNkd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlKcGJteHBibVU3SUdacGJHVnVZVzFsUFNKVFkzSmxaVzRnVTJodmRDQXlNREl4TFRBNExUQTBJR0YwSURFeExqQXlMakE1SUVGTkxuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVTJOeVpXVnVKVEl3VTJodmRDVXlNREl3TWpFdE1EZ3RNRFFsTWpCaGRDVXlNREV4TGpBeUxqQTVKVEl3UVUwdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMS0wOC0wNFQxOToyNjoxOC44ODdaIiwicHVyIjoiYmxvYl9rZXkifX0=--ac2ded4daafb4b89f9e8fe9ca2d2ca44f353a14f/Screen%20Shot%202021-08-04%20at%2011.02.09%20AM.png
+Completed 302 Found in 24ms (ActiveRecord: 1.2ms | Allocations: 5707)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaemQyY1hRNWVuTm9iMnRsWXpaNmJHTjNOWGgyYzJGb05YQTNkd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlKcGJteHBibVU3SUdacGJHVnVZVzFsUFNKVFkzSmxaVzRnVTJodmRDQXlNREl4TFRBNExUQTBJR0YwSURFeExqQXlMakE1SUVGTkxuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVTJOeVpXVnVKVEl3VTJodmRDVXlNREl3TWpFdE1EZ3RNRFFsTWpCaGRDVXlNREV4TGpBeUxqQTVKVEl3UVUwdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMS0wOC0wNFQxOToyNjoxOC44ODdaIiwicHVyIjoiYmxvYl9rZXkifX0=--ac2ded4daafb4b89f9e8fe9ca2d2ca44f353a14f/Screen%20Shot%202021-08-04%20at%2011.02.09%20AM.png" for ::1 at 2021-08-04 15:21:18 -0400
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screen Shot 2021-08-04 at 11.02.09 AM"}
+Completed 200 OK in 2ms (ActiveRecord: 0.0ms | Allocations: 514)
+
+
+Started GET "/users/1" for ::1 at 2021-08-04 15:21:22 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:4:in `show'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  [1m[35m (12.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "posts" WHERE "posts"."user_id" = $1[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:17
+  [1m[36mPost Load (1.1ms)[0m  [1m[34mSELECT "posts".* FROM "posts" WHERE "posts"."user_id" = $1 ORDER BY "posts"."created_at" DESC[0m  [["user_id", 1]]
+  ↳ app/views/users/show.html.erb:44
+  [1m[36mActiveStorage::Attachment Load (1.0ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:46
+  [1m[36mActiveStorage::Blob Load (1.2ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/show.html.erb:46
+  Rendered users/show.html.erb within layouts/application (Duration: 27.8ms | Allocations: 4963)
+  Rendered layout layouts/application.html.erb (Duration: 42.8ms | Allocations: 10897)
+Completed 200 OK in 72ms (Views: 31.0ms | ActiveRecord: 18.1ms | Allocations: 16043)
+
+
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaemQyY1hRNWVuTm9iMnRsWXpaNmJHTjNOWGgyYzJGb05YQTNkd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlKcGJteHBibVU3SUdacGJHVnVZVzFsUFNKVFkzSmxaVzRnVTJodmRDQXlNREl4TFRBNExUQTBJR0YwSURFeExqQXlMakE1SUVGTkxuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVTJOeVpXVnVKVEl3VTJodmRDVXlNREl3TWpFdE1EZ3RNRFFsTWpCaGRDVXlNREV4TGpBeUxqQTVKVEl3UVUwdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMS0wOC0wNFQxOToyNjoxOC44ODdaIiwicHVyIjoiYmxvYl9rZXkifX0=--ac2ded4daafb4b89f9e8fe9ca2d2ca44f353a14f/Screen%20Shot%202021-08-04%20at%2011.02.09%20AM.png" for ::1 at 2021-08-04 15:21:22 -0400
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screen Shot 2021-08-04 at 11.02.09 AM"}
+Completed 200 OK in 1ms (ActiveRecord: 0.0ms | Allocations: 392)
+
+
