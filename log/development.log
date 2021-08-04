@@ -458,3 +458,88 @@ FOREIGN KEY ("blob_id")
   [1m[36mTRANSACTION (4.5ms)[0m  [1m[35mBEGIN[0m
   [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
   [1m[36mTRANSACTION (0.3ms)[0m  [1m[31mROLLBACK[0m
+Started GET "/" for ::1 at 2021-08-04 15:08:21 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mPost Load (5.4ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/home/index.html.erb:18
+  Rendered home/index.html.erb within layouts/application (Duration: 45.5ms | Allocations: 13955)
+  Rendered layout layouts/application.html.erb (Duration: 4716.5ms | Allocations: 185704)
+Completed 200 OK in 4747ms (Views: 4708.2ms | ActiveRecord: 19.0ms | Allocations: 192283)
+
+
+Started POST "/posts" for ::1 at 2021-08-04 15:08:41 -0400
+Processing by PostsController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "post"=>{"description"=>"posty loo", "image"=>#<ActionDispatch::Http::UploadedFile:0x00007f9124cf7918 @tempfile=#<Tempfile:/var/folders/83/vv50xtf96g72x22qjlrm1hyc0000gn/T/RackMultipart20210804-41341-7k23ij.png>, @original_filename="Screen Shot 2021-08-04 at 11.02.09 AM.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"post[image]\"; filename=\"Screen Shot 2021-08-04 at 11.02.09 AM.png\"\r\nContent-Type: image/png\r\n">, "user_id"=>"1"}, "commit"=>"Create Post"}
+  [1m[36mTRANSACTION (0.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/posts_controller.rb:3:in `create'
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `create'
+  [1m[36mPost Create (10.7ms)[0m  [1m[32mINSERT INTO "posts" ("description", "user_id", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "id"[0m  [["description", "posty loo"], ["user_id", 1], ["created_at", "2021-08-04 19:08:41.689661"], ["updated_at", "2021-08-04 19:08:41.689661"]]
+  ↳ app/controllers/posts_controller.rb:3:in `create'
+  [1m[36mActiveStorage::Attachment Load (3.6ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `create'
+  [1m[36mActiveStorage::Blob Create (3.3ms)[0m  [1m[32mINSERT INTO "active_storage_blobs" ("key", "filename", "content_type", "metadata", "service_name", "byte_size", "checksum", "created_at") VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING "id"[0m  [["key", "g7vqt9zshokec6zlcw5xvsah5p7w"], ["filename", "Screen Shot 2021-08-04 at 11.02.09 AM.png"], ["content_type", "image/png"], ["metadata", "{\"identified\":true}"], ["service_name", "local"], ["byte_size", 880466], ["checksum", "rL66Xj5oKuykPrFhWAOXJQ=="], ["created_at", "2021-08-04 19:08:41.710916"]]
+  ↳ app/controllers/posts_controller.rb:3:in `create'
+  [1m[36mActiveStorage::Attachment Create (23.8ms)[0m  [1m[32mINSERT INTO "active_storage_attachments" ("name", "record_type", "record_id", "blob_id", "created_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["name", "image"], ["record_type", "Post"], ["record_id", 1], ["blob_id", 1], ["created_at", "2021-08-04 19:08:41.716166"]]
+  ↳ app/controllers/posts_controller.rb:3:in `create'
+  [1m[36mPost Update (2.4ms)[0m  [1m[33mUPDATE "posts" SET "updated_at" = $1 WHERE "posts"."id" = $2[0m  [["updated_at", "2021-08-04 19:08:41.741565"], ["id", 1]]
+  ↳ app/controllers/posts_controller.rb:3:in `create'
+  [1m[36mTRANSACTION (7.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/posts_controller.rb:3:in `create'
+[36m  Disk Storage (5.3ms) [0m[32mUploaded file to key: g7vqt9zshokec6zlcw5xvsah5p7w (checksum: rL66Xj5oKuykPrFhWAOXJQ==)[0m
+[ActiveJob] Enqueued ActiveStorage::AnalyzeJob (Job ID: 915f99f9-de21-4328-a990-ae5a33a8fe13) to Async(default) with arguments: #<GlobalID:0x00007f91252f8e20 @uri=#<URI::GID gid://finstagram/ActiveStorage::Blob/1>>
+Redirected to http://localhost:3000/
+Completed 302 Found in 189ms (ActiveRecord: 66.5ms | Allocations: 34481)
+
+
+Started GET "/" for ::1 at 2021-08-04 15:08:41 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:9
+  [1m[36mPost Load (1.5ms)[0m  [1m[34mSELECT "posts".* FROM "posts" ORDER BY "posts"."created_at" DESC[0m
+  ↳ app/views/home/index.html.erb:18
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:25
+  [1m[36mActiveStorage::Attachment Load (1.1ms)[0m  [1m[34mSELECT "active_storage_attachments".* FROM "active_storage_attachments" WHERE "active_storage_attachments"."record_id" = $1 AND "active_storage_attachments"."record_type" = $2 AND "active_storage_attachments"."name" = $3 LIMIT $4[0m  [["record_id", 1], ["record_type", "Post"], ["name", "image"], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:28
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/home/index.html.erb:28
+  Rendered home/index.html.erb within layouts/application (Duration: 40.9ms | Allocations: 5838)
+  Rendered layout layouts/application.html.erb (Duration: 51.6ms | Allocations: 11671)
+Completed 200 OK in 54ms (Views: 46.4ms | ActiveRecord: 6.1ms | Allocations: 12434)
+
+
+  [1m[36mActiveStorage::Blob Load (0.9ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[ActiveJob] [ActiveStorage::AnalyzeJob] [915f99f9-de21-4328-a990-ae5a33a8fe13] Performing ActiveStorage::AnalyzeJob (Job ID: 915f99f9-de21-4328-a990-ae5a33a8fe13) from Async(default) enqueued at 2021-08-04T19:08:41Z with arguments: #<GlobalID:0x00007f9129b53bc0 @uri=#<URI::GID gid://finstagram/ActiveStorage::Blob/1>>
+[ActiveJob] [ActiveStorage::AnalyzeJob] [915f99f9-de21-4328-a990-ae5a33a8fe13] [36m  Disk Storage (1.1ms) [0m[34mDownloaded file from key: g7vqt9zshokec6zlcw5xvsah5p7w[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [915f99f9-de21-4328-a990-ae5a33a8fe13] Skipping image analysis because the mini_magick gem isn't installed
+Started GET "/user_avatar.jpg" for ::1 at 2021-08-04 15:08:41 -0400
+Started GET "/rails/active_storage/blobs/redirect/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--93cec10b85c2ecd9857ca15c896f0332b675f568/Screen%20Shot%202021-08-04%20at%2011.02.09%20AM.png" for ::1 at 2021-08-04 15:08:41 -0400
+[ActiveJob] [ActiveStorage::AnalyzeJob] [915f99f9-de21-4328-a990-ae5a33a8fe13]   [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mBEGIN[0m
+  
+ActionController::RoutingError (No route matches [GET] "/user_avatar.jpg"):
+  
+[ActiveJob] [ActiveStorage::AnalyzeJob] [915f99f9-de21-4328-a990-ae5a33a8fe13]   [1m[36mActiveStorage::Blob Update (3.9ms)[0m  [1m[33mUPDATE "active_storage_blobs" SET "metadata" = $1 WHERE "active_storage_blobs"."id" = $2[0m  [["metadata", "{\"identified\":true,\"analyzed\":true}"], ["id", 1]]
+Processing by ActiveStorage::Blobs::RedirectController#show as PNG
+  Parameters: {"signed_id"=>"eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBCZz09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--93cec10b85c2ecd9857ca15c896f0332b675f568", "filename"=>"Screen Shot 2021-08-04 at 11.02.09 AM"}
+  [1m[36mActiveStorage::Blob Load (1.0ms)[0m  [1m[34mSELECT "active_storage_blobs".* FROM "active_storage_blobs" WHERE "active_storage_blobs"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+[36m  Disk Storage (5.5ms) [0m[34mGenerated URL for file at key: g7vqt9zshokec6zlcw5xvsah5p7w (http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaemQyY1hRNWVuTm9iMnRsWXpaNmJHTjNOWGgyYzJGb05YQTNkd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlKcGJteHBibVU3SUdacGJHVnVZVzFsUFNKVFkzSmxaVzRnVTJodmRDQXlNREl4TFRBNExUQTBJR0YwSURFeExqQXlMakE1SUVGTkxuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVTJOeVpXVnVKVEl3VTJodmRDVXlNREl3TWpFdE1EZ3RNRFFsTWpCaGRDVXlNREV4TGpBeUxqQTVKVEl3UVUwdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMS0wOC0wNFQxOToxMzo0Mi4wNTNaIiwicHVyIjoiYmxvYl9rZXkifX0=--4bd371eb9376f4dc5db47f8b3ac1bc305e0e7832/Screen%20Shot%202021-08-04%20at%2011.02.09%20AM.png)[0m
+Redirected to http://localhost:3000/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaemQyY1hRNWVuTm9iMnRsWXpaNmJHTjNOWGgyYzJGb05YQTNkd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlKcGJteHBibVU3SUdacGJHVnVZVzFsUFNKVFkzSmxaVzRnVTJodmRDQXlNREl4TFRBNExUQTBJR0YwSURFeExqQXlMakE1SUVGTkxuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVTJOeVpXVnVKVEl3VTJodmRDVXlNREl3TWpFdE1EZ3RNRFFsTWpCaGRDVXlNREV4TGpBeUxqQTVKVEl3UVUwdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMS0wOC0wNFQxOToxMzo0Mi4wNTNaIiwicHVyIjoiYmxvYl9rZXkifX0=--4bd371eb9376f4dc5db47f8b3ac1bc305e0e7832/Screen%20Shot%202021-08-04%20at%2011.02.09%20AM.png
+Completed 302 Found in 13ms (ActiveRecord: 1.0ms | Allocations: 3187)
+
+
+[ActiveJob] [ActiveStorage::AnalyzeJob] [915f99f9-de21-4328-a990-ae5a33a8fe13]   [1m[36mTRANSACTION (31.5ms)[0m  [1m[35mCOMMIT[0m
+[ActiveJob] [ActiveStorage::AnalyzeJob] [915f99f9-de21-4328-a990-ae5a33a8fe13] Performed ActiveStorage::AnalyzeJob (Job ID: 915f99f9-de21-4328-a990-ae5a33a8fe13) from Async(default) in 173.26ms
+Started GET "/rails/active_storage/disk/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaDdDVG9JYTJWNVNTSWhaemQyY1hRNWVuTm9iMnRsWXpaNmJHTjNOWGgyYzJGb05YQTNkd1k2QmtWVU9oQmthWE53YjNOcGRHbHZia2tpQVlKcGJteHBibVU3SUdacGJHVnVZVzFsUFNKVFkzSmxaVzRnVTJodmRDQXlNREl4TFRBNExUQTBJR0YwSURFeExqQXlMakE1SUVGTkxuQnVaeUk3SUdacGJHVnVZVzFsS2oxVlZFWXRPQ2NuVTJOeVpXVnVKVEl3VTJodmRDVXlNREl3TWpFdE1EZ3RNRFFsTWpCaGRDVXlNREV4TGpBeUxqQTVKVEl3UVUwdWNHNW5CanNHVkRvUlkyOXVkR1Z1ZEY5MGVYQmxTU0lPYVcxaFoyVXZjRzVuQmpzR1ZEb1JjMlZ5ZG1salpWOXVZVzFsT2dwc2IyTmhiQT09IiwiZXhwIjoiMjAyMS0wOC0wNFQxOToxMzo0Mi4wNTNaIiwicHVyIjoiYmxvYl9rZXkifX0=--4bd371eb9376f4dc5db47f8b3ac1bc305e0e7832/Screen%20Shot%202021-08-04%20at%2011.02.09%20AM.png" for ::1 at 2021-08-04 15:08:42 -0400
+Processing by ActiveStorage::DiskController#show as PNG
+  Parameters: {"encoded_key"=>"[FILTERED]", "filename"=>"Screen Shot 2021-08-04 at 11.02.09 AM"}
+Completed 200 OK in 9ms (ActiveRecord: 0.0ms | Allocations: 653)
+
+
