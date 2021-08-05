@@ -772,3 +772,26 @@ ActionView::Template::Error (Missing partial home/_upload_form, application/_upl
     6:   <div class="posts">
   
 app/views/home/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2021-08-05 17:18:30 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/_upload_form.html.erb (Duration: 175.3ms | Allocations: 7725)
+  Rendered home/index.html.erb within layouts/application (Duration: 180.1ms | Allocations: 8167)
+  Rendered layout layouts/application.html.erb (Duration: 180.5ms | Allocations: 8241)
+Completed 500 Internal Server Error in 210ms (ActiveRecord: 21.6ms | Allocations: 10011)
+
+
+  
+ActionView::Template::Error (undefined method `id' for nil:NilClass):
+     6:     <%= f.file_field :image %>
+     7:   </div>
+     8:   <div class="form-group">
+     9:     <%= f.text_field :user_id, value: current_user.id, class: 'd-none' %>
+    10:   </div>
+    11:   <br>
+    12:   <div class="text-center">
+  
+app/views/home/_upload_form.html.erb:9
+app/views/home/_upload_form.html.erb:1
+app/views/home/index.html.erb:3
