@@ -721,3 +721,54 @@ Migrating to CreatePostHashTags (20210805204458)
   [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
   [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_advisory_unlock(7977417797467670265)[0m
   [1m[35m (0.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for 127.0.0.1 at 2021-08-05 17:08:38 -0400
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 6.8ms | Allocations: 2800)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | Allocations: 2894)
+Completed 500 Internal Server Error in 51ms (ActiveRecord: 2.5ms | Allocations: 10451)
+
+
+  
+ActionView::Template::Error (Missing partial home/_upload_form, application/_upload_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/ianmarshall/Development/postgrad/finstagram/app/views"
+  * "/Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/kaminari-core-1.2.1/app/views"
+  * "/Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views"
+  * "/Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/actiontext-6.1.4/app/views"
+  * "/Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/actionmailbox-6.1.4/app/views"
+):
+    1: <div class="homepage">
+    2:   <div class='form-upload'>
+    3:     <%= render 'upload_form' %>
+    4:   </div>
+    5: 
+    6:   <div class="posts">
+  
+app/views/home/index.html.erb:3
+Started GET "/" for 127.0.0.1 at 2021-08-05 17:15:30 -0400
+Processing by HomeController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering home/index.html.erb within layouts/application
+  Rendered home/index.html.erb within layouts/application (Duration: 12.0ms | Allocations: 2175)
+  Rendered layout layouts/application.html.erb (Duration: 14.6ms | Allocations: 2250)
+Completed 500 Internal Server Error in 168ms (ActiveRecord: 48.5ms | Allocations: 7145)
+
+
+  
+ActionView::Template::Error (Missing partial home/_upload_form, application/_upload_form with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:raw, :erb, :html, :builder, :ruby, :jbuilder]}. Searched in:
+  * "/Users/ianmarshall/Development/postgrad/finstagram/app/views"
+  * "/Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/kaminari-core-1.2.1/app/views"
+  * "/Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/devise-4.8.0/app/views"
+  * "/Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/actiontext-6.1.4/app/views"
+  * "/Users/ianmarshall/.rvm/gems/ruby-3.0.2/gems/actionmailbox-6.1.4/app/views"
+):
+    1: <div class="homepage">
+    2:   <div class='form-upload'>
+    3:     <%= render 'upload_form' %>
+    4:   </div>
+    5: 
+    6:   <div class="posts">
+  
+app/views/home/index.html.erb:3
