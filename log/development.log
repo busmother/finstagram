@@ -639,3 +639,63 @@ ActionView::Template::Error (Error: Invalid CSS after "  }": expected selector o
   
 app/assets/stylesheets/home.scss:9
 app/views/layouts/application.html.erb:6
+Started GET "/users/1/edit" for ::1 at 2021-08-04 15:55:46 -0400
+  [1m[35m (1.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/edit.html.erb:14
+  Rendered users/edit.html.erb within layouts/application (Duration: 23.4ms | Allocations: 6684)
+  Rendered layout layouts/application.html.erb (Duration: 383.5ms | Allocations: 61600)
+Completed 500 Internal Server Error in 425ms (ActiveRecord: 9.0ms | Allocations: 74656)
+
+
+  
+ActionView::Template::Error (Error: File to import not found or unreadable: users.
+        on line 3:1 of app/assets/stylesheets/application.scss
+>> @import "users";
+
+   ^
+):
+    3:   <head>
+    4:     <title>Finstagram</title>
+    5:     <%= csrf_meta_tags %>
+    6:     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    7:     <%# <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %> %>
+    8:   </head>
+    9: 
+  
+app/assets/stylesheets/application.scss:3
+app/views/layouts/application.html.erb:6
+Started GET "/users/1/edit" for ::1 at 2021-08-04 15:57:08 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/edit.html.erb:14
+  Rendered users/edit.html.erb within layouts/application (Duration: 7.1ms | Allocations: 2630)
+  Rendered layout layouts/application.html.erb (Duration: 4384.2ms | Allocations: 159042)
+Completed 200 OK in 4392ms (Views: 4383.7ms | ActiveRecord: 3.5ms | Allocations: 160466)
+
+
+Started GET "/users/1/edit" for ::1 at 2021-08-04 15:59:23 -0400
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:8:in `edit'
+  Rendering layout layouts/application.html.erb
+  Rendering users/edit.html.erb within layouts/application
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/users/edit.html.erb:14
+  Rendered users/edit.html.erb within layouts/application (Duration: 74.8ms | Allocations: 6308)
+  Rendered layout layouts/application.html.erb (Duration: 93.1ms | Allocations: 12321)
+Completed 200 OK in 125ms (Views: 101.5ms | ActiveRecord: 4.0ms | Allocations: 14788)
+
+
